@@ -1,0 +1,24 @@
+{
+    "info": {
+        "name": "AI成诗",
+        "description": "AI成诗, 利用charRNN模型生成唐诗，模型采用数据为chinese-poetry开源数据。ATN (https://www.atn.io/).",
+        "logo": "https://ai-market-ui-img.oss-cn-hangzhou.aliyuncs.com/ATN%402x.png",
+        "category": "basicTextAnalysis",
+        "tags": [
+            "AI"
+        ]
+    },
+    "endpoints": [
+        {
+            "uri": "/reg",
+            "path": "/poetry/reg",
+            "method": "post",
+            "price": 1000000000000000
+        }
+    ],
+    "specification": {
+        "type": "swagger",
+        "format": "json",
+        "file": "swagger.json"
+    }
+}

@@ -1,0 +1,61 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "AI成诗, 利用charRNN模型生成唐诗，模型采用数据为chinese-poetry开源数据。ATN (https://www.atn.io/).",
+    "version": "1.0.0",
+    "title": "AI 成诗"
+  },
+  "host": "airpc.atnio.net",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/poetry/reg": {
+      "post": {
+        "summary": "AI 成诗",
+        "description": "根据输入的主题（嵌首字），生成优美的藏头诗。",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "theme",
+            "type": "string",
+            "required": true,
+            "description": "用于生成藏头诗的主题句子，长度不超过8个汉字"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "result response",
+            "schema": {
+              "$ref": "#/definitions/requestResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "requestResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "response code",
+          "type": "string"
+        },
+        "result": {
+          "description": "Generated Chinese acrostic Tang Poetry",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

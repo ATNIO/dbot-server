@@ -1,0 +1,62 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Auto generate Chinese Acrostic Tang Poetry based on a sentence, it uses the charRNN model to generate Tang poems and the Chinese-poetry open source dataset is used to traning this model. powered by ATN(https://www.atn.io/).",
+    "version": "1.0.0",
+    "title": "Chinese Acrostic Tang Poetry"
+  },
+  "host": "airpc.atnio.net",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/poetry/reg": {
+      "post": {
+        "summary": "Chinese Acrostic Tang Poetry",
+        "description": "Auto generate Chinese Acrostic Tang Poetry based on a sentence",
+        "operationId": "CWS",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "theme",
+            "type": "string",
+            "required": true,
+            "description": "The subject sentence used for Chinese Acrostic Poetry, no more than 8 Chinese characters in length"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "result response",
+            "schema": {
+              "$ref": "#/definitions/requestResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "requestResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "response code",
+          "type": "string"
+        },
+        "result": {
+          "description": "Generated Chinese acrostic Tang Poetry",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

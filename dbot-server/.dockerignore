@@ -1,0 +1,9 @@
+# files and folders which should not COPY to image
+data
+env
+logs
+tmp
+tests
+*Dockerfile
+README.md
+tags

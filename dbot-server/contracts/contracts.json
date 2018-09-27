@@ -1,0 +1,504 @@
+{
+  "DbotFactory": {
+    "abi": [
+      {
+        "constant": true,
+        "inputs": [
+          {
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "name": "idToAddress",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_dbotAddress",
+            "type": "address"
+          }
+        ],
+        "name": "register",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [
+          {
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "name": "dbots",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "name": "dbotAddress",
+            "type": "address"
+          }
+        ],
+        "name": "Register",
+        "type": "event"
+      }
+    ],
+    "bytecode": "0x6080604052600436106100565763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416632a2d0c47811461005b5780634420e4861461009c578063d37ed5e5146100cc575b600080fd5b34801561006757600080fd5b506100736004356100e4565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b3480156100a857600080fd5b506100ca73ffffffffffffffffffffffffffffffffffffffff6004351661010c565b005b3480156100d857600080fd5b506100736004356101c2565b60016020526000908152604090205473ffffffffffffffffffffffffffffffffffffffff1681565b60008054600181810183557f290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e5638201805473ffffffffffffffffffffffffffffffffffffffff861673ffffffffffffffffffffffffffffffffffffffff1991821681179092558385526020928352604094859020805490911682179055835183815291820152825191927fa902c0ee3df5ddb3d1ab80437a22cd86a19a2295f7c96c5e387ea29d9d0bfaad92918290030190a15050565b60008054829081106101d057fe5b60009182526020909120015473ffffffffffffffffffffffffffffffffffffffff169050815600a165627a7a72305820416cb5ac2f7604b4a1657873c3beb871b4d76cfb575de283e7cbf2d273da597f0029"
+  },
+  "Dbot": {
+    "abi": [
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "name",
+        "outputs": [
+          {
+            "name": "",
+            "type": "bytes32"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_domain",
+            "type": "bytes32"
+          }
+        ],
+        "name": "changeDomain",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [],
+        "name": "withdraw",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_balance",
+            "type": "uint256"
+          },
+          {
+            "name": "_balance_msg_sig",
+            "type": "bytes"
+          }
+        ],
+        "name": "withdrawFromChannel",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_method",
+            "type": "bytes32"
+          },
+          {
+            "name": "_price",
+            "type": "uint256"
+          },
+          {
+            "name": "_uri",
+            "type": "bytes32"
+          }
+        ],
+        "name": "updateEndPoint",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [
+          {
+            "name": "",
+            "type": "bytes32"
+          }
+        ],
+        "name": "keyToEndPoints",
+        "outputs": [
+          {
+            "name": "method",
+            "type": "bytes32"
+          },
+          {
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "name": "uri",
+            "type": "bytes32"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "getOwner",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_name",
+            "type": "bytes32"
+          }
+        ],
+        "name": "changeName",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_method",
+            "type": "bytes32"
+          },
+          {
+            "name": "_price",
+            "type": "uint256"
+          },
+          {
+            "name": "_uri",
+            "type": "bytes32"
+          }
+        ],
+        "name": "addEndPoint",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "domain",
+        "outputs": [
+          {
+            "name": "",
+            "type": "bytes32"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [
+          {
+            "name": "_method",
+            "type": "bytes32"
+          },
+          {
+            "name": "_uri",
+            "type": "bytes32"
+          }
+        ],
+        "name": "getKey",
+        "outputs": [
+          {
+            "name": "",
+            "type": "bytes32"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "pure",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "sc",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_method",
+            "type": "bytes32"
+          },
+          {
+            "name": "_uri",
+            "type": "bytes32"
+          }
+        ],
+        "name": "deleteEndPoint",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_owner",
+            "type": "address"
+          }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "name": "_name",
+            "type": "bytes32"
+          },
+          {
+            "name": "_domain",
+            "type": "bytes32"
+          },
+          {
+            "name": "_method",
+            "type": "bytes32"
+          },
+          {
+            "name": "_price",
+            "type": "uint256"
+          },
+          {
+            "name": "_uri",
+            "type": "bytes32"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "payable": true,
+        "stateMutability": "payable",
+        "type": "fallback"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "name": "name",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "name": "domain",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "name": "method",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "name": "uri",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "name": "key",
+            "type": "bytes32"
+          }
+        ],
+        "name": "CreateDbot",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "name": "name",
+            "type": "bytes32"
+          }
+        ],
+        "name": "ChangeName",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "name": "domain",
+            "type": "bytes32"
+          }
+        ],
+        "name": "ChangeDomain",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "name": "method",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "name": "uri",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "name": "key",
+            "type": "bytes32"
+          }
+        ],
+        "name": "AddEndPoint",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "name": "method",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "name": "uri",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "name": "key",
+            "type": "bytes32"
+          }
+        ],
+        "name": "UpdateEndPoint",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "name": "method",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "name": "uri",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "name": "key",
+            "type": "bytes32"
+          }
+        ],
+        "name": "DeleteEndPoint",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "name": "previousOwner",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+      }
+    ],
+    "bytecode": "0x608060405260018054600160a060020a031916601217905534801561002357600080fd5b5060405160a080610b208339810160409081528151602083015191830151606084015160809094015160008054600160a060020a0319163317815592949192831580159061007057508115155b15156100dd57604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601c60248201527f6d6574686f64206f72207572692063616e6e6f74206265206e756c6c00000000604482015290519081900360640190fd5b600286905560038590556100fa8483640100000000610196810204565b6040805160608181018352878252602080830188815283850188815260008781526004845286902094518555905160018501555160029093019290925582518a815291820189905281830188905281018690526080810185905260a0810183905290519192507f699b3c8db739c4eb888e0dde803e1405af35ea9d9b06462346500b7ad5f77b70919081900360c00190a150505050505061021c565b6040805160208082018590528183018490528251808303840181526060909201928390528151600093918291908401908083835b602083106101e95780518252601f1990920191602091820191016101ca565b5181516020939093036101000a600019018019909116921691909117905260405192018290039091209695505050505050565b6108f58061022b6000396000f3006080604052600436106100cf5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166306fdde0381146100d15780631ca43ef4146100f85780633ccfd60b1461011057806359b6ba8814610125578063626e68b81461018357806380800ba5146101a1578063893d20e8146101d7578063898855ed14610208578063be08a75e14610220578063c2fb26a61461023e578063c3105a6b14610253578063dd0c86431461026e578063dfdd007614610283578063f2fde38b1461029e575b005b3480156100dd57600080fd5b506100e66102bf565b60408051918252519081900360200190f35b34801561010457600080fd5b506100cf6004356102c5565b34801561011c57600080fd5b506100cf610317565b34801561013157600080fd5b5060408051602060046024803582810135601f81018590048502860185019096528585526100cf95833595369560449491939091019190819084018382808284375094975061035e9650505050505050565b34801561018f57600080fd5b506100cf6004356024356044356104b3565b3480156101ad57600080fd5b506101b96004356105d4565b60408051938452602084019290925282820152519081900360600190f35b3480156101e357600080fd5b506101ec6105f5565b60408051600160a060020a039092168252519081900360200190f35b34801561021457600080fd5b506100cf600435610604565b34801561022c57600080fd5b506100cf600435602435604435610656565b34801561024a57600080fd5b506100e6610701565b34801561025f57600080fd5b506100e6600435602435610707565b34801561027a57600080fd5b506101ec61078d565b34801561028f57600080fd5b506100cf60043560243561079c565b3480156102aa57600080fd5b506100cf600160a060020a0360043516610826565b60025481565b600054600160a060020a031633146102dc57600080fd5b60038190556040805182815290517f4829a3b0e8107346e4c73e06a92920f3ea165f0dd211a56ebc98645a88690e169181900360200190a150565b600054600160a060020a0316331461032e57600080fd5b6040513390303180156108fc02916000818181858888f1935050505015801561035b573d6000803e3d6000fd5b50565b60008054600160a060020a0316331461037657600080fd5b600180546040517f39f0bbea0000000000000000000000000000000000000000000000000000000081526004810183815260248201879052606060448301908152865160648401528651600160a060020a03909416946339f0bbea949093899389939092909160840190602085019080838360005b838110156104035781810151838201526020016103eb565b50505050905090810190601f1680156104305780820380516001836020036101000a031916815260200191505b50945050505050602060405180830381600087803b15801561045157600080fd5b505af1158015610465573d6000803e3d6000fd5b505050506040513d602081101561047b57600080fd5b5051604051909150339082156108fc029083906000818181858888f193505050501580156104ad573d6000803e3d6000fd5b50505050565b60008054600160a060020a031633146104cb57600080fd5b6104d58483610707565b60008181526004602052604090205490915015801590610505575060008181526004602052604090206002015415155b151561057257604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152600660248201527f6e6f206b65790000000000000000000000000000000000000000000000000000604482015290519081900360640190fd5b60008181526004602090815260409182902060010185905581518681529081018590528082018490526060810183905290517f75e4e1ebb2623a976be5db0bafbf22a8d72211c54418ee5fbd1dd877075d7aca9181900360800190a150505050565b60046020526000908152604090208054600182015460029092015490919083565b600054600160a060020a031690565b600054600160a060020a0316331461061b57600080fd5b60028190556040805182815290517fed5ac1d1a7892bbd2cae6c149100a8d5bd6b29464c1b89bedc32eb571556f2169181900360200190a150565b60008054600160a060020a0316331461066e57600080fd5b6106788483610707565b604080516060818101835287825260208083018881528385018881526000878152600484528690209451855590516001850155516002909301929092558251888152918201879052818301869052810183905290519192507fdef76b1e7d58124f90e91e6a9b5414479612b682ee7acb3f88beb431e907acbd919081900360800190a150505050565b60035481565b6040805160208082018590528183018490528251808303840181526060909201928390528151600093918291908401908083835b6020831061075a5780518252601f19909201916020918201910161073b565b5181516020939093036101000a600019018019909116921691909117905260405192018290039091209695505050505050565b600154600160a060020a031681565b60008054600160a060020a031633146107b457600080fd5b6107be8383610707565b60008181526004602090815260408083208381556001810184905560020192909255815186815290810185905280820183905290519192507f81427d0a0c0f926692685506284ce48b93f0961c5f1f7f5208d8bf418827be8a919081900360600190a1505050565b600054600160a060020a0316331461083d57600080fd5b600160a060020a038116151561085257600080fd5b60005460408051600160a060020a039283168152918316602083015280517f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09281900390910190a16000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03929092169190911790555600a165627a7a723058201c6d6637b281a545edfe6ce935e0429b560b787d459682740571092bb04030860029"
+  }
+}

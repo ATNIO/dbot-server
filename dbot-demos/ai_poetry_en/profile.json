@@ -1,0 +1,24 @@
+{
+    "info": {
+        "name": "Chinese Acrostic Tang Poetry",
+        "description": "Auto generate Chinese Acrostic Tang Poetry based on a sentence, powered by ATN(https://www.atn.io/).",
+        "logo": "https://ai-market-ui-img.oss-cn-hangzhou.aliyuncs.com/ATN%402x.png",
+        "category": "basicTextAnalysis",
+        "tags": [
+            "AI"
+        ]
+    },
+    "endpoints": [
+        {
+            "uri": "/reg",
+            "path": "/poetry/reg",
+            "method": "post",
+            "price": 1000000000000000
+        }
+    ],
+    "specification": {
+        "type": "swagger",
+        "format": "json",
+        "file": "swagger.json"
+    }
+}
