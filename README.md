@@ -58,7 +58,8 @@ curl http://<IP or Domain of DBot Server>/api/v1
 
 A DBot profile and an API specification file(only [swagger2.0](https://swagger.io/specification/v2/) is supported now) is required to create a new DBot. And we support add a middleware(python) for a DBot, it is optional. This three files should be in the same folder.
 
-We have provided such files for this API as a demo. Then we provide `dbot-service` command which contain in a python package named `dbot-manager`, to manage DBot on your DBot server.
+We have provided such files for this API as a demo.
+Just use the `dbot-service` command which provided by python package`dbot-manager`, to manage DBot on your DBot server.
 
 ```bash
 # install dbot-manager, it provide the dbot-service command

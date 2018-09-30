@@ -7,3 +7,4 @@ tests
 *Dockerfile
 README.md
 tags
+__pycache__

@@ -10,8 +10,8 @@ from .errors import InvalidUsage
 
 db = Database()
 
-def create_app(environment=None):
-    app = Flask(__name__)
+def create_app(name=None, environment=None):
+    app = Flask(__name__ if name is None else name)
 
     from flask_cors import CORS
     cors = CORS(app, resources={r"*": {"origins": "*"}})

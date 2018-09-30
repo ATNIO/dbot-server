@@ -8,21 +8,17 @@ import click
 import os
 import json
 import signal
-import gevent
 import logging
 import logging.config
 
 from app import create_app
 from utils import get_private_key
+from log import DBotLogger
 
-os.makedirs('logs', exist_ok=True)
-logging.config.fileConfig(os.path.join(os.path.dirname(__file__), 'logging.conf'))
-
-app = create_app()
-if app.config['DEBUG']:
-    logging.getLogger('dbot').setLevel(logging.DEBUG)
-else:
-    logging.getLogger('dbot').setLevel(logging.INFO)
+app_environ = os.environ.get('APP_ENV', 'Development')
+app_name = 'dbot_server'
+logging.config.dictConfig(DBotLogger(app_name, app_environ).config())
+app = create_app(app_name, app_environ)
 
 def handle_quit(sig, frame):
     logging.info("handle_quit called with signal {}".format(sig))

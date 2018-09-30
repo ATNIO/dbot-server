@@ -1,6 +1,6 @@
 FROM tiangolo/uwsgi-nginx:python3.6
 
-COPY dbot-server/requirements.txt /requirements.txt
+COPY requirements.txt /requirements.txt
 # upgrade pip and install required python packages
 RUN pip install -U pip
 RUN pip install -r /requirements.txt
