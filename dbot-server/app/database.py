@@ -15,7 +15,7 @@ from utils import Cached
 from exceptions import DBException
 
 
-logger = logging.getLogger(os.path.splitext(os.path.basename(__file__))[0])
+logger = logging.getLogger('dbot.' + os.path.splitext(os.path.basename(__file__))[0])
 
 
 class LevelDBDict(MutableMapping):

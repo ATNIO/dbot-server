@@ -11,10 +11,8 @@ LOGPATH = os.path.join(os.path.dirname(__file__), 'logs')
 os.makedirs(LOGPATH, exist_ok=True)
 
 class DBotLogger():
-    def __init__(self, name, app_environ):
+    def __init__(self, name):
         self._name=name
-        self._app_config = getattr(config, app_environ)
-        print('self._dbug = {}'.format(self._app_config.DEBUG))
 
     def config(self):
         return {
@@ -61,12 +59,12 @@ class DBotLogger():
             'loggers': {
                 'dbot': {
                     'handlers': ['console', 'info_file', 'debug_file'],
-                    'level': 'DEBUG' if self._app_config.DEBUG else 'INFO',
+                    'level': 'DEBUG',
                     'propagate': False
                 }
             },
             'root': {
                 'handlers': ['console', 'info_file', 'debug_file'],
-                'level': 'DEBUG' if self._app_config.DEBUG else 'INFO',
+                'level': 'DEBUG',
             }
         }

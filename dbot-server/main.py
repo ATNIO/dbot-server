@@ -15,10 +15,9 @@ from app import create_app
 from utils import get_private_key
 from log import DBotLogger
 
-app_environ = os.environ.get('APP_ENV', 'Production')
 app_name = 'dbot_server'
-logging.config.dictConfig(DBotLogger(app_name, app_environ).config())
-app = create_app(app_name, app_environ)
+logging.config.dictConfig(DBotLogger(app_name).config())
+app = create_app(app_name, os.environ.get('APP_ENV', 'Production'))
 
 pk_file = './keystore/keyfile'
 pw_file = './password/passwd'
