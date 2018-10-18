@@ -23,7 +23,7 @@ In order to share your AI APIs, you need develop a DBot service which run on the
 For example, we want to share an API which use AI to generate chinese-poetry based on one sentence.
 
 ```bash
-curl -X POST "http://airpc.atnio.net/poetry/reg" -F "theme=中秋月更圆"
+curl -X POST "http://airpc.atnio.net:8003/poetry/reg" -F "theme=中秋月更圆"
 ```
 Let's start step by step:
 
@@ -81,10 +81,11 @@ We use payment channel make payment per request is possible on blockchain. So AP
 We also provide [Python ATN client](https://github.com/ATNIO/pyatn-client) which just for develop now.
 ```bash
 # install Python ATN client
-pip install pyatn_client
+pip install pyatn-client
 ```
 
-Here is an example about how to use the python ATN Client. ATN client is used by API consumers, so we use other account here. 
+Here is an example about how to use the python ATN Client. ATN client is used by API consumers, so we use other account here.
+
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -104,7 +105,7 @@ requests_data = {
     }
 }
 
-DBOT_ADDRESS = <DBot Address>
+DBOT_ADDRESS = '0xfd4F504F373f0af5Ff36D9fbe1050E6300699230' # address of the DBot you want to test, use 'AI poetry' as example
 atn = Atn(http_provider=<HTTP_PROVIDER>, pk_file=<Keystore File>, pw_file=<Password File>)
 
 # call dbot api, it will auto create channel with the DBot if no exist channel.
