@@ -270,9 +270,16 @@ class Blockchain(gevent.Greenlet):
                                "Can't close the channel. "
                                'Will retry once the balance is sufficient')
                 self.insufficient_balance = True
-                # TODO: recover
 
         # update head hash and number
+        try:
+            new_unconfirmed_head_hash = self.web3.eth.getBlock(new_unconfirmed_head_number).hash
+        except AttributeError:
+            self.log.info('chain reorganization detected. '
+                            'Resyncing unconfirmed events (unconfirmed_head=%d) [@%d]. ' %
+                            new_unconfirmed_head_number)
+            self.cm.reset_unconfirmed()
+            new_unconfirmed_head_number = self.cm.state.unconfirmed_head_number
         try:
             new_unconfirmed_head_hash = self.web3.eth.getBlock(new_unconfirmed_head_number).hash
             new_confirmed_head_hash = self.web3.eth.getBlock(new_confirmed_head_number).hash
@@ -290,7 +297,7 @@ class Blockchain(gevent.Greenlet):
             new_confirmed_head_hash
         )
         if not self.wait_sync_event.is_set() and new_unconfirmed_head_number == current_block:
-            self.log.info('channel info (recever: {}) sync finished'.format(self.cm.receiver))
+            self.log.info('Channel info (recever: {}) sync finished, continue listen ...'.format(self.cm.receiver))
             self.wait_sync_event.set()
 
     def insufficient_balance_recover(self):
