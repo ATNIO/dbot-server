@@ -1,21 +1,20 @@
 # ATN DBot Server
 
-DBot Server provide a framework for AI API providers connect AI consumers through blockchain. 
+DBot Server provide a set of tools for API providers in order to easily deploy their API to ATN ecosystem. API provider can decide to monetize their API with a "pay-per-use" design or make it free. They can also decide to deploy their own token which will be needed in order to use their services. It's a complete open-source project build on a fully decentralized infrastructure.
 
 ## Introduction
 
-ATN blockchain provide a way for you to share your AI APIs though blockchain. What you need to do is develop an DBot.
+In order to join ATN ecosystem and deploy your API, you will have to follow this work flow:
 
-Here is the work flow.
+1. Deploy this DBot server technology on your Linux/Unix server. The DBot server is a framework, It provides the core functionalities needed for your services. ( DBot server support the deployment of many DBot services (API))
 
-1. Use this project to deploy a DBot server on your Linux/Unix server, which shoud be accessed on internet. The DBot server is a framework, It provide foundation functions for DBot services. Multipy DBot services can run on the same DBot server.
-In order to share your AI APIs, you need develop a DBot service which run on the DBot server.
+One the DBot server is up and running you need to start a DBot service.
 
-2. Develop a DBot service:
- * Prepare data for you dbot, include DBot profile, API specification file and Middleware(optional).
- * Deploy a DBot contract on chain and start a DBot service on your dbot server. This can be done by just one command we provide.
+2. Start a DBot service:
+ * Prepare the required data including, DBot metadata (name, description, keywords, domain name), API specification file (swagger 2.0) and Middleware(optional).
+ * Deploy a DBot contract on chain and start a DBot service on your Dbot server. This can be done by just one command we provide.
 
-3. You DBot server will show on offical AI Market, if you have publish it. You also can setup your own AI Market to show any DBot your want.
+3. After your API is up an running, you can either publish it on our official ATN API market or decide to deploy your own API market and publish it in your market.
 
 
 ## Quick Start
@@ -31,7 +30,7 @@ Let's start step by step:
 
 1. A Linux/Unix Server which can access from internet and an ATN chain node with RPC enable. You can start your own ATN node or use our offical one: `https://rpc-test.atnio.net`
 
-2. An account of the ATN chain, which has enough ATN balance. You can get ATN from the [faucet](https://faucet-test.atnio.net/) service.
+2. An ATN account which has enough ATN . You can get ATN from the [faucet](https://faucet-test.atnio.net/) service.
 
 #### 2. Start DBot server
 
@@ -50,23 +49,24 @@ docker run -p 4548:80 \
 # check DBot server is ok
 curl http://0.0.0.0:4548/api/v1
 
-# make sure your DBot server is accessed on internet
+# make sure your DBot server is up and running
 curl http://<IP or Domain of DBot Server>/api/v1
 ```
 
 #### 3. Develop a simple DBot
 
-A DBot profile and an API specification file(only [swagger2.0](https://swagger.io/specification/v2/) is supported now) is required to create a new DBot. And we support add a middleware(python) for a DBot, it is optional. This three files should be in the same folder.
+A DBot profile and an API specification file(only [swagger2.0](https://swagger.io/specification/v2/) is supported now) are required to deploy an API DBot. We also support a middleware(python) for a DBot, it is optional. This three files should be in the same folder.
 
-We have provided such files for this API as a demo.
-Just use the `dbot-service` command which provided by python package`dbot-manager`, to manage DBot on your DBot server.
+You can find example of these files in the dbot-demos folder
+
+Just use the `dbot-service` command  provided by the python package`dbot-manager`, to manage DBot on your DBot server.
 
 ```bash
-# install dbot-manager, it provide the dbot-service command
+# install dbot-manager, it provides the dbot-service command
 sudo pip install dbot-manager
 # config dbot-service command first, the account used here should be the same with the one which used to start DBot server
 dbot-service config --dbot-server http://<IP or Domain of DBot Server> --pk-file <keystore file> --pw-file <password file> --http-provider https://rpc-test.atnio.net
-# Add the DBot service, you will get the address on ATN chain of the new DBot from the output.
+# Add the DBot service, you will receive the contract address of the new API DBot as an output.
 git clone https://github.com/ATNIO/dbot-server.git
 cd dbot-server
 dbot-service add --profile dbot-demos/ai_poetry_en/profile.json
@@ -76,7 +76,7 @@ dbot-service status --address <DBot address>
 
 #### Test the DBot
 
-We use payment channel make payment per request is possible on blockchain. So API consumers should use the [ATN client](https://github.com/ATNIO/atn-node-js/tree/alpha#atn-node-js) to call the API in DBot. You also can use the ATN client to test your DBot.
+We use payment channel technology which give use a "pay-per-call" design (every time you query the API you need to pay). So API consumers can use the [ATN client](https://github.com/ATNIO/atn-node-js/tree/alpha#atn-node-js) to call the API in DBot. You also can use the ATN client to test your own DBot.
 
 We also provide [Python ATN client](https://github.com/ATNIO/pyatn-client) which just for develop now.
 ```bash
