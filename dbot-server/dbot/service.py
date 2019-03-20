@@ -108,7 +108,7 @@ class Paywall(object):
             return str(e), 409, {}
 
         logger.info('check balance signature in request header')
-        logger.debug('request data = {}'.format(data))
+        logger.info('request data = {}'.format(req_headers))
         refused, ret, resp_headers = self.paywall_check(price, data)
 
         if refused:

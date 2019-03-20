@@ -38,7 +38,7 @@ NetworkConfig = partial(
 # network-specific configuration
 NETWORK_CONFIG_DEFAULTS = {
     # testnet
-    17: NetworkConfig(
+    208: NetworkConfig(
         channel_manager_address='0x0000000000000000000000000000000000000012',
         start_sync_block=0
     )
@@ -72,4 +72,4 @@ def get_defaults(network_id: int):
 
 # default config
 NETWORK_CFG = NetworkRuntime()
-NETWORK_CFG.set_defaults(17)
+NETWORK_CFG.set_defaults(208)

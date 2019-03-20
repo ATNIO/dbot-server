@@ -1,11 +1,11 @@
 version: '3'
 services:
-  dbot-server:
-    image: atnio/dbot-server:latest
+  dbot-server-dpos:
+    image: atnio/dbot-server-dpos:latest
     environment:
       - APP_ENV=Production
       - WEB3_PROVIDER=http://atnchain:4545
-      - LISTEN_PORT=80
+      - LISTEN_PORT=4548
     depends_on:
       - atnchain
     volumes:
@@ -14,10 +14,10 @@ services:
       - ./accounts/signer01/keystore/UTC--2018-06-19T08-45-22.967932431Z--6c7986a0c46815495e592b1afca62b157027ee65:/dbot-server/keystore/keyfile
       - ./accounts/signer01/password/passwd:/dbot-server/password/passwd
     ports:
-      - 4548:80
+      - 4548:4548
 
   atnchain:
-    image: atnio/atnchain:latest
+    image: atnio/atnchaindpos:latest
     restart: always
     command: '--rinkeby --rpc --rpcapi "atn,db,personal,eth,net,web3" --rpcaddr="0.0.0.0" --rpccorsdomain="*"'
     volumes:
