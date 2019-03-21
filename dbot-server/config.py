@@ -25,7 +25,8 @@ class Development(Config):
 
 class Production(Config):
     HOST = '0.0.0.0'
-    PORT = 4548
+    PORT = 80
+
 
 class Testing(Config):
     TESTING = True

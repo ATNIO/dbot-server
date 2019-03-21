@@ -19,7 +19,7 @@ ENV WEB3_PROVIDER http://0.0.0.0:4545
 # By default, Nginx listens on port 80.
 # To modify this, change LISTEN_PORT environment variable.
 # (in a Dockerfile or with an option for `docker run`)
-ENV LISTEN_PORT 4548
+ENV LISTEN_PORT 80
 
 # Which uWSGI .ini file should be used, to make it customizable
 ENV UWSGI_INI /dbot-server/uwsgi.ini
